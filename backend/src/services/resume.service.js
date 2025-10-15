@@ -86,4 +86,8 @@ export async function listCandidates() {
   }));
 }
 
+export async function clearCandidates() {
+  await Resume.deleteMany({});
+}
+
 

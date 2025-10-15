@@ -2,7 +2,7 @@ import { Router } from 'express';
 import multer from 'multer';
 import path from 'path';
 import os from 'os';
-import { processResumes, listCandidates } from '../services/resume.service.js';
+import { processResumes, listCandidates, clearCandidates } from '../services/resume.service.js';
 import fs from 'fs';
 
 const router = Router();
@@ -43,6 +43,15 @@ router.get('/candidates', async (_req, res) => {
     res.json({ ok: true, candidates });
   } catch (err) {
     res.status(500).json({ ok: false, error: err.message || 'Failed to list candidates' });
+  }
+});
+
+router.delete('/candidates', async (_req, res) => {
+  try {
+    await clearCandidates();
+    res.json({ ok: true });
+  } catch (err) {
+    res.status(500).json({ ok: false, error: err.message || 'Failed to clear candidates' });
   }
 });
 

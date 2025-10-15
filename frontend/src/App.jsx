@@ -60,14 +60,29 @@ function UploadForm({ onUploaded }) {
 function CandidatesList({ refreshSignal }) {
   const [candidates, setCandidates] = useState([])
   const [loading, setLoading] = useState(false)
+  const [clearing, setClearing] = useState(false)
 
   async function fetchCandidates() {
+    setCandidates([]) // clear immediately so the UI reflects refresh intent
     setLoading(true)
     try {
-      const { data } = await axios.get('/api/resumes/candidates')
+      const { data } = await axios.get('/api/resumes/candidates', { params: { t: Date.now() } })
       setCandidates(data.candidates || [])
     } finally {
       setLoading(false)
+    }
+  }
+
+  async function clearAll() {
+    if (!confirm('Clear all processed candidates?')) return
+    setClearing(true)
+    try {
+      await axios.delete('/api/resumes/candidates')
+      setCandidates([])
+    } catch (err) {
+      alert(err?.response?.data?.error || err.message)
+    } finally {
+      setClearing(false)
     }
   }
 
@@ -77,7 +92,14 @@ function CandidatesList({ refreshSignal }) {
     <div className="bg-white p-4 rounded shadow">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold">Ranked Candidates</h2>
-        <button className="text-sm text-blue-600" onClick={fetchCandidates}>Refresh</button>
+        <div className="flex items-center gap-3">
+          <button className="text-sm text-blue-600" onClick={fetchCandidates} disabled={loading}>
+            {loading ? 'Refreshing...' : 'Refresh'}
+          </button>
+          <button className="text-sm text-red-600" onClick={clearAll} disabled={clearing}>
+            {clearing ? 'Clearing...' : 'Clear All'}
+          </button>
+        </div>
       </div>
       {loading && <p className="text-sm text-gray-500 mt-2">Loading...</p>}
       <ul className="divide-y mt-2">
@@ -115,5 +137,6 @@ export default function App() {
     </div>
   )
 }
+
 
 

@@ -8,6 +8,9 @@ AI-powered Resume Parsing and Candidate Ranking System
 The Smart Resume Screener intelligently parses resumes, extracts structured information (skills, experience, education), and compares them against a provided job description.
 Using Groq LLM, it computes a match score and generates justifications for each candidate, allowing recruiters to shortlist top candidates quickly.
 
+# Demo Video
+
+[![Demo Video Drive Link](https://img.shields.io/badge/Demo-Video)](https://drive.google.com/file/d/12Igye7vaIrq5VrO2Dq1ZnJq_HAQw8ZDV/view?usp=sharing)
 # 🚀 Features
 
 - ✅ Upload multiple resumes (PDF/Text)
