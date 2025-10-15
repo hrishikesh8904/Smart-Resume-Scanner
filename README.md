@@ -1,11 +1,11 @@
-🧠 Smart Resume Screener
+##🧠 Smart Resume Screener
 AI-powered Resume Parsing and Candidate Ranking System
-📋 Objective
+##📋 Objective
 
 The Smart Resume Screener intelligently parses resumes, extracts structured information (skills, experience, education), and compares them against a provided job description.
 Using Groq LLM, it computes a match score and generates justifications for each candidate, allowing recruiters to shortlist top candidates quickly.
 
-🚀 Features
+##🚀 Features
 
 ✅ Upload multiple resumes (PDF/Text)
 ✅ Parse and extract candidate details:
@@ -25,7 +25,7 @@ Experience
 ✅ Store results in MongoDB
 ✅ Modern React + Tailwind dashboard
 
-🏗️ Tech Stack
+##🏗️ Tech Stack
 Component Technology
 Frontend React.js, Tailwind CSS
 Backend Node.js, Express.js
@@ -33,7 +33,7 @@ Database MongoDB (Mongoose)
 LLM Integration Groq API
 Resume Parsing pdf-parse, text parsing
 File Upload Multer
-🧩 Architecture
+##🧩 Architecture
 smart-resume-screener/
 │
 ├── backend/
@@ -65,7 +65,7 @@ smart-resume-screener/
 ├── .env.example
 └── README.md
 
-⚙️ Environment Setup
+##⚙️ Environment Setup
 
 1️⃣ Create a .env file in the backend/ directory
 (based on .env.example)
@@ -100,7 +100,7 @@ Frontend: http://localhost:5173
 
 Backend: http://localhost:5000
 
-📤 Usage Workflow
+##📤 Usage Workflow
 
 1️⃣ Upload multiple resumes (PDF/Text)
 2️⃣ Paste a job description in the textarea
@@ -116,7 +116,7 @@ Stores results in MongoDB
 
 Displays ranked candidates with score + justification
 
-🧩 LLM Prompting & Scoring Logic
+##🧩 LLM Prompting & Scoring Logic
 
 This project uses the Groq API (OpenAI-compatible endpoint) for semantic comparison between a resume and a job description.
 
@@ -237,7 +237,7 @@ Score is clamped between 0–10
 
 Returns fallback justification on malformed responses
 
-🌐 API Endpoints
+##🌐 API Endpoints
 Method Endpoint Description
 POST /api/resumes/upload Uploads resumes & job description
 GET /api/resumes Returns all candidates sorted by match score
@@ -256,24 +256,13 @@ justification: String,
 
 export default mongoose.model("Candidate", candidateSchema);
 
-🎨 Frontend UI Overview
+##🎨 Frontend UI Overview
 Component Purpose
 UploadForm.jsx Upload files + job description
 CandidateList.jsx Display ranked candidates
 App.jsx Manage state & API calls
-🧰 Evaluation Focus
 
-✅ Code structure & quality
-
-✅ Data extraction accuracy
-
-✅ LLM prompt clarity & output
-
-✅ Frontend presentation
-
-✅ Error handling
-
-🎬 Demo Steps
+##🎬 Demo Steps
 
 Run backend and frontend
 
@@ -283,9 +272,9 @@ Click Analyze
 
 View ranked candidates
 
-🧑‍💻 Author
+##🧑‍💻 Author
 
 Hrishikesh Sane (Kesh)
-📧 hrishikeshsane@example.com
+📧 hrishikesh.sane202289@gmail.com
 
 💼 MERN + AI Developer
