@@ -32,8 +32,9 @@ Backend Node.js, Express.js
 Database MongoDB (Mongoose)
 LLM Integration Groq API
 Resume Parsing pdf-parse, text parsing
-File Upload Multer
+ 
 ##🧩 Architecture
+![alt text](image.png)
 smart-resume-screener/
 │
 ├── backend/
